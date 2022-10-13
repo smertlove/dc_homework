@@ -52,7 +52,7 @@ def main():
         if not answ.lower().startswith("y"):
             quit("Terminating program.")
     
-    paths = [f"ex_{i}" for i in range(1, int(n) + 1)]
+    paths = [f"ex{i}" for i in range(1, int(n) + 1)]
     mkdirs(*paths)
     mkfiles(*paths)
     
