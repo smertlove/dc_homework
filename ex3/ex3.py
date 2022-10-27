@@ -4,11 +4,7 @@ def get_balance(name, transactions):
     return sum((c["amount"] for c in transactions if c["name"] == name))
 
 def count_debts(names, amount, transactions):
-    answ = {name: amount - get_balance(name, transactions) for  name in names}
-    for name in answ:
-        if answ[name] < 0:
-            answ[name] = 0
-    return answ
+    return {name: ((y := amount - get_balance(name, transactions)) > 0) * y for  name in names}
 
 
 def main():
