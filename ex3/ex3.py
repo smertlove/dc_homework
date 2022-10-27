@@ -1,5 +1,3 @@
-from functools import reduce
-
 def get_balance(name, transactions):
     return sum((c["amount"] for c in transactions if c["name"] == name))
 
