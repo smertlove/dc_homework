@@ -2,7 +2,7 @@ from functools import reduce
 
 def lists_sum(*lists, unique=False) :
     if unique:
-        return sum(reduce(lambda st1, st2: st1 | st2, tuple(map(set, lists))))
+        return sum(reduce(lambda st1, st2: st1 | st2, map(set, lists)))
     return sum([sum(list) for list in lists])
 
 def main():
