@@ -1,9 +1,7 @@
 import datetime
 
 def gift_count(budget, month, birthdays):
-    birthday_boys = [f"{boy} ({datetime.datetime.strftime(birthdays[boy], '%d.%m.%Y')})" for boy in birthdays if birthdays[boy].month == month]
-    
-    print(f"Именинники в месяце {month}: {', '.join(birthday_boys)}. При бюджете {budget} они получат по {budget // len(birthday_boys)} рублей.")
+    print(f"""Именинники в месяце {month}: {', '.join((birthday_boys := [f"{boy} ({datetime.datetime.strftime(birthdays[boy], '%d.%m.%Y')})" for boy in birthdays if birthdays[boy].month == month]))}. При бюджете {budget} они получат по {budget // len(birthday_boys)} рублей.""")
     
 
 def main():
