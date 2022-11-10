@@ -31,7 +31,6 @@ class BaseWallet:
     # Повторяющийся код математических операций. #
     def __apply_operation(self, other, operation):
         if isinstance(other, BaseWallet):
-            # print(self.to_base,  sep="\n")
             return self.__class__(self._name, operation(self.to_base(), other.to_base()) // self._coefficient)
         return self.__class__(self._name, operation(self._amount, other))
 
