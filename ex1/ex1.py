@@ -7,14 +7,14 @@ class Calculator:
     last = None
     
     def __init__(self):
-        self.__history = []
+        self._history = []
     
     def __cache_it(method):
         def wrap(self, a, b, *args, **kwargs):
             answ = method(self, a, b, *args, **kwargs)
 
             self.__class__.last = f"{method.__name__}({a}, {b}) == {answ}"
-            self.__history.append(self.last)
+            self._history.append(self.last)
 
             return answ
         return wrap
@@ -38,9 +38,9 @@ class Calculator:
         return a / b
 
     def history(self, n):
-        if len(self.__history) < n:
+        if len(self._history) < n:
             return None
-        return self.__history[-n]
+        return self._history[-n]
 
     @classmethod
     def clear(cls):
