@@ -2,15 +2,15 @@ RUBLE_COEF = 1
 DOLLAR_COEF = 60
 EURO_COEF = 70
 
+
 class BaseWallet:
     
     _coefficient = 1
+    _log_name = "Base Wallet"
 
     def __init__(self, name, amount):
         self._name = name
         self._amount = amount
-
-
 
 
     def get_amount(self):
@@ -24,8 +24,6 @@ class BaseWallet:
 
     def to_base(self):
         return self._amount * self._coefficient
-
-
 
 
     # Повторяющийся код математических операций. #
@@ -71,40 +69,30 @@ class BaseWallet:
         return type(self) is type(other) and self._amount == other.get_amount() 
 
     def __repr__(self):
-        return f"Base Wallet {self._name} {self._amount}"
+        return f"{self._log_name} {self._name} {self._amount}"
 
     def spend_all(self):
         if self.get_amount() > 0:
             self._amount = 0
 
 
-
-
-
-
-
 class RubbleWallet(BaseWallet):
 
     _coefficient = RUBLE_COEF
-
-    def __repr__(self):
-        return f"Rubble Wallet {self._name} {self._amount}"
+    _log_name = "Rubble Wallet"
 
 
 class DollarWallet(BaseWallet):
 
     _coefficient = DOLLAR_COEF
-
-    def __repr__(self):
-        return f"Dollar Wallet {self._name} {self._amount}"
+    _log_name = "Dollar Wallet"
 
 
 class EuroWallet(BaseWallet):
 
     _coefficient = EURO_COEF
+    _log_name = "Euro Wallet"
 
-    def __repr__(self):
-        return f"Euro Wallet {self._name} {self._amount}"
 
 
 
