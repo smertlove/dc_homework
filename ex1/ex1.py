@@ -1,10 +1,11 @@
 class Calculator:
 
     last = None
-    
+
     def __init__(self):
         self._history = []
-    
+
+    @staticmethod
     def __cache_it(method):
         def wrap(self, a, b, *args, **kwargs):
             answ = method(self, a, b, *args, **kwargs)
@@ -14,18 +15,18 @@ class Calculator:
 
             return answ
         return wrap
-
+ 
     @__cache_it
     def sum(self, a, b):
-        return a + b 
+        return a + b
 
     @__cache_it
     def sub(self, a, b):
-        return a - b 
-
+        return a - b
+     
     @__cache_it
     def mul(self, a, b):
-        return a * b 
+        return a * b
 
     @__cache_it
     def div(self, a, b, mod=False):
