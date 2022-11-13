@@ -15,7 +15,7 @@ class Calculator:
 
             return answ
         return wrap
- 
+
     @__cache_it
     def sum(self, a, b):
         return a + b
@@ -23,7 +23,7 @@ class Calculator:
     @__cache_it
     def sub(self, a, b):
         return a - b
-     
+
     @__cache_it
     def mul(self, a, b):
         return a * b
@@ -42,4 +42,3 @@ class Calculator:
     @classmethod
     def clear(cls):
         cls.last = None
-
