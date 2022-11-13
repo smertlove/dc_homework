@@ -1,8 +1,9 @@
 import unittest
 from ex1 import Calculator
 
+
 class TestCalculator(unittest.TestCase):
-    
+
     def setUp(self):
         self.calc = Calculator()
 
@@ -38,10 +39,9 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(Calculator.last, None)
 
 
-def main(): 
+def main():
     unittest.main()
-    
-   
+
 
 if __name__ == "__main__":
     main()
