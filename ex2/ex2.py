@@ -4,7 +4,7 @@ EURO_COEF = 70
 
 
 class BaseWallet:
-    
+
     _coefficient = 1
     _log_name = "Base Wallet"
 
@@ -12,12 +12,11 @@ class BaseWallet:
         self._name = name
         self._amount = amount
 
-
     def get_amount(self):
         return self._amount
 
     def get_name(self):
-            return self._name
+        return self._name
 
     def get_coefficient(self):
         return self._coefficient
@@ -25,14 +24,17 @@ class BaseWallet:
     def to_base(self):
         return self._amount * self._coefficient
 
-
     # Повторяющийся код математических операций. #
     def __apply_operation(self, other, operation):
         if isinstance(other, BaseWallet):
-            return self.__class__(self._name, operation(self.to_base(), other.to_base()) // self._coefficient)
+            return self.__class__(self._name,
+                                  operation(
+                                      self.to_base(),
+                                      other.to_base()
+                                      ) // self._coefficient)
         return self.__class__(self._name, operation(self._amount, other))
 
-    def __add__ (self, other):
+    def __add__(self, other):
         return self.__apply_operation(other, lambda a, b: a + b)
 
     def __radd__(self, other):
@@ -41,7 +43,7 @@ class BaseWallet:
     def __iadd__(self, other):
         return self.__add__(other)
 
-    def __sub__ (self, other):
+    def __sub__(self, other):
         return self.__apply_operation(other, lambda a, b: a - b)
 
     def __rsub__(self, other):
@@ -66,7 +68,7 @@ class BaseWallet:
         return self.__apply_operation(other, lambda a, b: b / a)
 
     def __eq__(self, other):
-        return type(self) is type(other) and self._amount == other.get_amount() 
+        return type(self) is type(other) and self._amount == other.get_amount()
 
     def __repr__(self):
         return f"{self._log_name} {self._name} {self._amount}"
@@ -94,15 +96,14 @@ class EuroWallet(BaseWallet):
     _log_name = "Euro Wallet"
 
 
-
-
 def main():
-    a = RubbleWallet("X", 20) 
+    a = RubbleWallet("X", 20)
     b = DollarWallet("D", 10)
     c = a + b
     d = RubbleWallet("X", 620)
     for i in (a, b, c, d):
         print(i)
+
 
 if __name__ == "__main__":
     main()
