@@ -16,24 +16,21 @@ def check_string(string):
     return check_telnum(string) or check_eml(string)
 
 
-
 def main():
-    test_dir = os.path.join( os.path.dirname(__file__), "tests" )
+    test_dir = os.path.join(os.path.dirname(__file__), "tests")
     test_paths = [
         "good_numbers.txt",
         "bad_numbers.txt",
         "good_emls.txt",
         "bad_emls.txt",
     ]
-    
-    for path in  test_paths:
+
+    for path in test_paths:
         print(f"{path}:\n")
-        with open(os.path.join( test_dir, path), encoding='utf-8') as test_file:
+        with open(os.path.join(test_dir, path), encoding='utf-8') as test_file:
             for case in test_file:
                 print(case.strip(), '\t', check_string(case.strip()))
         print("- - - - -\n")
-
-
 
 
 if __name__ == "__main__":
