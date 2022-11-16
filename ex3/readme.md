@@ -55,12 +55,14 @@
 
 ## Формат ввода
 
-`result = create_booking(`
-`    "Вагнер",`
-`    datetime.datetime(2022, 9, 1, 14),`
-`    datetime.datetime(2022, 9, 1, 15, 15)`
-`)`
-`print(result)`
+```
+result = create_booking(
+    "Вагнер",
+    datetime.datetime(2022, 9, 1, 14),
+    datetime.datetime(2022, 9, 1, 15, 15)
+)
+print(result)
+```
 
 ## Формат вывода
 
@@ -70,18 +72,20 @@
 
 Функция возвращает:
 
-`{`
-`  "created": false,`
-`  "msg": "Комната занята",`
-`  "booking": {`
-`    "room_name": "Вагнер",`
-`    "start_date": "2022-09-01",`
-`    "start_time": "14:00",`
-`    "end_date": "2022-09-01",`
-`    "end_time": "15:15",`
-`    "duration": 75`
-`  }`
-`}`
+```
+{
+  "created": false,
+  "msg": "Комната занята",
+  "booking": {
+    "room_name": "Вагнер",
+    "start_date": "2022-09-01",
+    "start_time": "14:00",
+    "end_date": "2022-09-01",
+    "end_time": "15:15",
+    "duration": 75
+  }
+}
+```
 
 ## Примечания
 
