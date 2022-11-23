@@ -1,5 +1,9 @@
-def main():
-    pass
+from time import time
 
-if __name__ == "__main__":
-    main()
+def time_decorator(func):
+    def wrap(*args, **kwargs):
+        start = time()
+        answ = func(*args, **kwargs)
+        print(round(time() - start))
+        return answ
+    return wrap
